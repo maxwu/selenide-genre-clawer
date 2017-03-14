@@ -1,4 +1,4 @@
-package me.maxwu.selenide;
+package me.maxwu.selenide.pageObjects;
 
 import java.util.List;
 

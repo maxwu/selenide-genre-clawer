@@ -1,4 +1,4 @@
-package me.maxwu.selenide;
+package me.maxwu.selenide.pageObjects;
 
 /**
  * Created by maxwu on 3/14/17.
