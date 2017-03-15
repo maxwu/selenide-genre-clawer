@@ -1,11 +1,11 @@
 # selenide-toy
-A practice project with Selenide (a selenium based web test lib but more friendly and concise)
+Practice Page Object with Selenide to fetch Billboard Top100 songs' genres.
 
 ## Targets
 
 Download top 100 billboard tracks information and search genre information with google.
 
--[X] Download top 100 billboard list;
+-[X] PageObject to fetch top 100 billboard list;
 -[ ] Query google about the song's genre;
 
 ## Notes
