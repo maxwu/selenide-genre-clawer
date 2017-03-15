@@ -15,7 +15,7 @@ public class AppBase {
     static Logger logger = LoggerFactory.getLogger(AppBase.class.getName());
     WebDriver driver = null;
 
-    public void checkDriver(){
+    public void setDriver(){
         if (DriverFactory.hasQuit(driver)) {
             driver = DriverFactory.getChromeDriver();
             WebDriverRunner.setWebDriver(driver);
@@ -23,7 +23,7 @@ public class AppBase {
     }
 
     public BillboardTop100Page onBillboardTop100Page() {
-        checkDriver();
+        setDriver();
         baseUrl = "http://www.billboard.com/charts/hot-100";
         BillboardTop100Page page = open("/", BillboardTop100Page.class);
         return page;

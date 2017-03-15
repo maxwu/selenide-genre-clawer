@@ -9,7 +9,8 @@ import static com.codeborne.selenide.Selenide.page;
 
 public class GooglePage {
 
-    public GenreSearchPage searchFor(String text) {
+    public GenreSearchPage searchFor(String songName) {
+        String text = "genre of " + songName;
         $("#lst-ib").val(text).pressEnter();
         return page(GenreSearchPage.class);
     }

@@ -26,8 +26,12 @@ public class BillboardTop100Page {
     }
 
     public Map<Integer, List<String>> getTop100Map(){
+        return getTop100Map(100);
+    }
+
+    public Map<Integer, List<String>> getTop100Map(int size){
         Map<Integer, List<String>> top100Map = new HashMap<Integer, List<String>>();
-        for(WebElement rowDiv: getTop100Rows()){
+        for(WebElement rowDiv: getTop100Rows().stream().limit(size).collect(Collectors.toList())){
             ArrayList<String> rowList = new ArrayList<String>(3);
             String rank = rowDiv.findElement(By.cssSelector("span.chart-row__current-week")).getText().trim();
             logger.debug("rank : " + rank);
