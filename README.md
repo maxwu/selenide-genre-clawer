@@ -11,6 +11,25 @@ Download top 100 billboard tracks information and search genre information with 
   
   - [X] Resolved Exception handling in Page Object with Selenide.
 
+The genre list for top 100 billboard songs is accessible on [Github Link](https://github.com/maxwu/selenide-toy/blob/master/BB_top100_genres.yaml)
+
+In general, 47.96% of songs in list have easily patterned Google genre query results.
+
+The sample of first 10 songs genre query results:
+
+    ```yaml
+    How Far I'll Go: [Film music]
+    T-Shirt: [NA]
+    Let Me Love You: [Dance, electronic]
+    Rockabye: [NA]
+    Bad And Boujee: [Hip-hop, rap]
+    Any Ol' Barstool: [Country]
+    Play That Song: [Funk]
+    I Got You: [Classic R&B]
+    Rolex: [NA]
+    Hometown Girl: [NA]
+    ```
+
 ## Backgrounds
 
 This is inspired by a post found in super market notice wall. 
@@ -35,14 +54,18 @@ As recommended by Andrei on Selenide.org, the PageObject is expected to interact
 
 - The error shall be captured when properties are __first accessed__ with the WebElement or ElementCollection, not the association time as defined in getters by PageObject with Selectors.
 
-```java
-try{
-	genres = Arrays.asList($("#rso div._uX div._XWk").getText().split("/"));
-}catch (ElementNotFound e){
-	logger.info("Mark genre to NA due to error:\n" + e.toString());
-	genres = new ArrayList<>(Arrays.asList("NA"));
-}
-```
+    ```java
+    try{
+        genres = Arrays.asList($("#rso div._uX div._XWk").getText().split("/"));
+    }catch (ElementNotFound e){
+        logger.info("Mark genre to NA due to error:\n" + e.toString());
+        genres = new ArrayList<>(Arrays.asList("NA"));
+    }
+    ```
+    
+## TODO
+
+- Try to insert a state to query the 2nd time if simple query cannot return easily patterned result.
 
 
 
