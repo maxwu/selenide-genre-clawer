@@ -29,17 +29,13 @@ import static com.codeborne.selenide.Selenide.screenshot;
 public class GenreSearchPage {
     static Logger logger = LoggerFactory.getLogger(GenreSearchPage.class.getName());
 
-    private SelenideElement getGenreDiv(){
-        return $("#rso div._uX div._XWk");
-    }
-
     //getGenreDiv().should(exist);
     public List<String> getGenres(){
         List<String> genres;
         try{
-            genres = Arrays.asList(getGenreDiv().getText().split("/"));
+            genres = Arrays.asList($("#rso div._uX div._XWk").getText().split("/"));
         }catch (ElementNotFound e){
-            logger.error("Mark genre to NA due to error:\n" + e.toString());
+            logger.info("Mark genre to NA due to error:\n" + e.toString());
             genres = new ArrayList<>(Arrays.asList("NA"));
         }
         logger.debug("## Genres are: " + genres.stream().collect(Collectors.joining(", ")));

@@ -9,6 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import static com.codeborne.selenide.Configuration.screenshots;
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Configuration.baseUrl;
 /**
@@ -21,6 +22,7 @@ public class AppBase {
     public void setDriver(){
         if (DriverFactory.hasQuit(driver)) {
             driver = DriverFactory.getChromeDriver();
+            //driver = DriverFactory.getPhantomJsDriver();
             WebDriverRunner.setWebDriver(driver);
             Configuration.reportsFolder = "target";
         }

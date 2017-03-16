@@ -2,12 +2,16 @@ package me.maxwu.selenide;
 
 import io.github.bonigarcia.wdm.ChromeDriverManager;
 import io.github.bonigarcia.wdm.FirefoxDriverManager;
+import io.github.bonigarcia.wdm.PhantomJsDriverManager;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.phantomjs.PhantomJSDriver;
+import org.openqa.selenium.phantomjs.PhantomJSDriverService;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,7 +31,7 @@ public class DriverFactory {
         System.setProperty("wdm.forceCache", "true");
     }
 
-    public static WebDriver getDriver(){
+    public static WebDriver getDefaultDriver(){
         //TODO: check system property "browser"
         return getChromeDriver();
     }
@@ -53,8 +57,23 @@ public class DriverFactory {
     }
 
     public static WebDriver getFirefoxDriver() {
+        DesiredCapabilities caps = DesiredCapabilities.firefox();
+        caps.setCapability("binary", "/Applications/FirefoxNightly.app/Contents/MacOS/firefox-bin");
+
         FirefoxDriverManager.getInstance().setup();
-        WebDriver driver = new FirefoxDriver();
+        WebDriver driver = new FirefoxDriver(caps);
+
+        logger.debug("**** Created Web Driver #" + driver.hashCode() + "****");
+        return driver;
+    }
+
+    public static WebDriver getPhantomJsDriver() {
+        DesiredCapabilities caps = new DesiredCapabilities();
+        caps.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY,
+                "/usr/local/bin/phantomjs");
+
+        PhantomJsDriverManager.getInstance().setup();
+        WebDriver driver = new PhantomJSDriver(caps);
 
         logger.debug("**** Created Web Driver #" + driver.hashCode() + "****");
         return driver;

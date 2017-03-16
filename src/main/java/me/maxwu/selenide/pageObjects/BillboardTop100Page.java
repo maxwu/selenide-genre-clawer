@@ -29,6 +29,7 @@ public class BillboardTop100Page {
         return getTop100Map(100);
     }
 
+    // We don't check size here for casual case.
     public Map<Integer, List<String>> getTop100Map(int size){
         Map<Integer, List<String>> top100Map = new HashMap<Integer, List<String>>();
         for(WebElement rowDiv: getTop100Rows().stream().limit(size).collect(Collectors.toList())){
