@@ -1,11 +1,13 @@
 package me.maxwu.selenide;
 
 import io.github.bonigarcia.wdm.ChromeDriverManager;
+import io.github.bonigarcia.wdm.FirefoxDriverManager;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -47,9 +49,17 @@ public class DriverFactory {
         WebDriver driver = new ChromeDriver(options);
 
         logger.debug("**** Created Web Driver #" + driver.hashCode() + "****");
-
         return driver;
     }
+
+    public static WebDriver getFirefoxDriver() {
+        FirefoxDriverManager.getInstance().setup();
+        WebDriver driver = new FirefoxDriver();
+
+        logger.debug("**** Created Web Driver #" + driver.hashCode() + "****");
+        return driver;
+    }
+
 
     public static boolean hasQuit(WebDriver driver) {
         return ((driver == null) || (((RemoteWebDriver) driver).getSessionId() == null));
