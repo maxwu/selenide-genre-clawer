@@ -38,9 +38,8 @@ public class AppBase {
        return open("/", GooglePage.class);
     }
 
-    public void quitDriver(){
-        DriverFactory.quitDriver(driver);
-        driver = null;
+    public static void quitDriver(){
+        DriverFactory.quitDriver(WebDriverRunner.getWebDriver());
     }
 
     @Override

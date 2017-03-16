@@ -1,10 +1,9 @@
 package me.maxwu.selenide;
 
+import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.WebDriverRunner;
 import com.codeborne.selenide.junit.ScreenShooter;
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Rule;
-import org.junit.Test;
+import org.junit.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -19,10 +18,14 @@ public class BillboardTop100GenreTest  extends AppBase {
     // @Rule
     // public ScreenShooter makeScreenshotOnFailure = ScreenShooter.failedTests().succeededTests();
 
-    @After
-    public void tearDown(){
-        //quitDriver();
+    @Rule
+    public BillboardTop100Watcher top100Rule = new BillboardTop100Watcher();
+
+    @AfterClass
+    public static void tearDown(){
+        quitDriver();
     }
+
 
     @Test
     public void testTop10Genres(){
