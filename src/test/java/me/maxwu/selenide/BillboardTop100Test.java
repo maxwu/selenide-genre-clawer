@@ -1,20 +1,15 @@
 package me.maxwu.selenide;
 
-import me.maxwu.selenide.pageObjects.BillboardTop100Page;
 import org.junit.*;
 
-import java.util.List;
 import java.util.Map;
 
 import static com.codeborne.selenide.Selenide.open;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 /**
  * Created by maxwu on 3/14/17.
  */
-public class BillboardTop100Test extends AppBase {
+public class BillboardTop100Test extends GenreBase {
     @After
     public void tearDown(){
         quitDriver();
@@ -22,13 +17,13 @@ public class BillboardTop100Test extends AppBase {
 
     @Test
     public void testTop100Map(){
-        Map<Integer, List<String>> map = onBillboardTop100Page().getTop100Map();
+        Map<Integer, Map<String, Object>> map = onBillboardTop100Page().getTop100Map();
         Assert.assertEquals(100, map.size());
     }
 
     @Test
     public void testTop10Map(){
-        Map<Integer, List<String>> map = onBillboardTop100Page().getTop100Map(10);
+        Map<Integer, Map<String, Object>> map = onBillboardTop100Page().getTop100Map(10);
         Assert.assertEquals(10, map.size());
     }
 

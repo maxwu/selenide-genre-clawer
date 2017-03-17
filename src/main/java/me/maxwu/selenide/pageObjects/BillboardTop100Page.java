@@ -25,25 +25,25 @@ public class BillboardTop100Page {
         return $$(By.cssSelector("div.chart-row__main-display"));
     }
 
-    public Map<Integer, List<String>> getTop100Map(){
+    public Map<Integer, Map<String, Object>> getTop100Map(){
         return getTop100Map(100);
     }
 
     // We don't check size here for casual case.
-    public Map<Integer, List<String>> getTop100Map(int size){
-        Map<Integer, List<String>> top100Map = new HashMap<Integer, List<String>>();
+    public Map<Integer, Map<String, Object>> getTop100Map(int size){
+        Map<Integer, Map<String, Object>> top100Map = new HashMap<>(100);
         for(WebElement rowDiv: getTop100Rows().stream().limit(size).collect(Collectors.toList())){
-            ArrayList<String> rowList = new ArrayList<String>(3);
+            Map<String, Object> rowMap = new HashMap<>(3);
             String rank = rowDiv.findElement(By.cssSelector("span.chart-row__current-week")).getText().trim();
             logger.debug("rank : " + rank);
             String song = rowDiv.findElement(By.cssSelector("h2.chart-row__song")).getText().trim();
             logger.debug("song : " + song);
             String artist = rowDiv.findElement(By.cssSelector(".chart-row__artist")).getText().trim();
             logger.debug("artist : " + artist);
-            rowList.add(song);
-            rowList.add(artist);
-            rowList.add("NA");
-            top100Map.put(Integer.valueOf(rank), rowList);
+
+            rowMap.put("song", song);
+            rowMap.put("artist", artist);
+            top100Map.put(Integer.valueOf(rank), rowMap);
         }
         logger.debug("total size is " + top100Map.size());
         return top100Map;
