@@ -17,12 +17,7 @@ public class App extends GenreBase {
         map = onBillboardTop100Page().getTop100Map();
         System.out.println("Got total " + map.size() + " songs");
 
-        map.forEach(
-                (k, v) -> v.put("genres",
-                        "[" + getSongGenres(v.get("song").toString(), v.get("artist").toString()).stream().collect(Collectors.joining(",")) + "]"
-                )
-        );
-
+        map.forEach((k, v) -> v.put("genres", getSongGenres(v.get("song").toString(), v.get("artist").toString())));
         quitDriver();
     }
 
