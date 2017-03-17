@@ -8,11 +8,11 @@ import java.util.List;
 /**
  * Created by maxwu on 3/15/17.
  */
-public class GenreTest {
+public class GenreTermTest {
 
     @Test
     public void testGenreList(){
-        List<String> genres = Genre.getGenreList();
+        List<String> genres = GenreTerm.getGenreList();
         genres.stream().forEach(g -> System.out.println("<"+g+">"));
         Assert.assertEquals(126, genres.size());
     }

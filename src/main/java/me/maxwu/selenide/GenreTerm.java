@@ -1,6 +1,5 @@
 package me.maxwu.selenide;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -9,7 +8,7 @@ import java.util.stream.IntStream;
 /**
  * Created by maxwu on 3/15/17.
  */
-public class Genre {
+public class GenreTerm {
     // The list was from http://id3.org/id3v2.3.0#Appendix_A_-_Genre_List_from_ID3v1
     // The Java compiler will optimize static string to avoid extra concatenation.
     private static String _genreText = "" +
@@ -155,7 +154,7 @@ public class Genre {
     }
 
     public static void main(String[] args){
-        List<String> genres = Genre.getGenreList();
+        List<String> genres = GenreTerm.getGenreList();
         IntStream.range(0, genres.size())
                 .forEach(idx -> System.out.printf("%3d %s\n", idx, genres.get(idx)));
     }
