@@ -10,10 +10,13 @@ Download top 100 billboard tracks information and search genre information with 
 -[X] Query google about the song's genre;
   
   - [X] Resolved Exception handling in Page Object with Selenide.
+  
+  - [X] Improve the success rate (now it is 83% after introduced multiple keywords to query with google)
 
 The genre list for top 100 billboard songs is accessible on [Github Link](https://github.com/maxwu/selenide-toy/blob/master/BB_top100_genres.yaml)
 
-In general, 47.96% of songs in list have easily patterned Google genre query results.
+In general, __83%__ of songs in list have easily patterned Google genre query results.
+(With multiple google query options, the success rate increased from 47.96% to 83%)
 
 The sample of first 10 songs genre query results:
 
@@ -65,7 +68,9 @@ As recommended by Andrei on Selenide.org, the PageObject is expected to interact
     
 ## TODO
 
-- Try to insert a state to query the 2nd time if simple query cannot return easily patterned result.
+- -Try to insert a state to query the 2nd time if simple query cannot return easily patterned result.-
+
+- Try to introduce multi-thread to run the query faster.
 
 
 
