@@ -22,6 +22,7 @@ public class App extends GenreBase {
                         "[" + getSongGenres(v.get("song").toString(), v.get("artist").toString()).stream().collect(Collectors.joining(",")) + "]"
                 )
         );
+
         quitDriver();
     }
 
