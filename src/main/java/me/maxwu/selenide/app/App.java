@@ -1,8 +1,9 @@
-package me.maxwu.selenide;
+package me.maxwu.selenide.app;
 
+import me.maxwu.selenide.GenreBase;
 import org.yaml.snakeyaml.Yaml;
 import java.util.Map;
-import java.util.stream.Collectors;
+
 import static com.codeborne.selenide.Configuration.screenshots;
 
 /**

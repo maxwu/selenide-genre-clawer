@@ -1,4 +1,4 @@
-package me.maxwu.selenide;
+package me.maxwu.genre;
 
 import java.util.ArrayList;
 import java.util.Arrays;

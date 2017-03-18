@@ -1,5 +1,6 @@
 package me.maxwu.selenide;
 
+import me.maxwu.genre.GenreTerm;
 import org.junit.Assert;
 import org.junit.Test;
 

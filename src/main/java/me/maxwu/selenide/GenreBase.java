@@ -55,13 +55,14 @@ public class GenreBase {
     public static String keywordArtistGenre(String song, String artist){
         return artist + " - " + song + " genre";
     }
+
     /**
      * The logic to fetch genre is:
      *  - Try "$song genre";
      *  - If NA, try "$song song genre", otherwise return genre list
      *  - Return genre list, for failed trial, return {"NA"}.
      * @param song
-     * @return
+     * @return ArrayList of genre strings
      */
     public List<String> getSongGenres(String song, String artist){
         List<String> genres = new ArrayList<>(4);
