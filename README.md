@@ -1,4 +1,4 @@
-# selenide-genre-clawer
+# Genre Clawer
 
 [![Build Status](https://travis-ci.org/maxwu/selenide-genre-clawer.svg?branch=master)](https://travis-ci.org/maxwu/selenide-genre-clawer)  [![Build Status](https://travis-ci.org/maxwu/selenide-genre-clawer.svg?branch=dev)](https://travis-ci.org/maxwu/selenide-genre-clawer)
 
@@ -111,5 +111,8 @@ Selenide relies on Selenium to support multiple browsers if we pay attention on 
 The selenide development community is open to support multiple browser support but which is not released. 
 In general, the way is to create multiple WebDrivers and tell out which driver to speak to while calling the proxies. 
 
+- Add simple HttpClient clawer solution and make cross check with selenide.
+  As a learning practice, cross-check is also a common way for API testing.
+  
 - Create Jenkins task to [http://jenkins.maxwu.me](http://jenkins.maxwu.me) and package this project with Pipeline.
 
