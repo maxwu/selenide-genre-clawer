@@ -1,4 +1,4 @@
-package me.maxwu.selenide.app;
+package me.maxwu.genre.app;
 
 import me.maxwu.selenide.GenreBase;
 import org.yaml.snakeyaml.Yaml;
