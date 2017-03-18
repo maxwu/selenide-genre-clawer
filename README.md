@@ -1,5 +1,6 @@
-# selenide-toy
-Practice Page Object with Selenide to fetch Billboard Top100 songs' genres.
+# selenide-genre-clawer
+A clawer to fetch song's genre information from internet. This project is a practice on PageObject with Selenide. 
+Based on it, an app was developed to generate billboard top 100 song list with genre information and dump them into YAML.
 
 ## Targets
 
@@ -13,24 +14,54 @@ Download top 100 billboard tracks information and search genre information with 
   
   - [X] Improve the success rate (now it is 83% after introduced multiple keywords to query with google)
 
-The genre list for top 100 billboard songs is accessible on [Github Link](https://github.com/maxwu/selenide-toy/blob/master/BB_top100_genres.yaml)
+The genre list for top 100 billboard songs is accessible on [Github Link](https://github.com/maxwu/selenide-genre-clawer/blob/master/BB_top100_genres.yaml)
 
 In general, __83%__ of songs in list have easily patterned Google genre query results.
 (With multiple google query options, the success rate increased from 47.96% to 83%)
 
-The sample of first 10 songs genre query results:
+The sample of first 10 songs genre query results. YAML structure is mapped with [$rank : {song: $str, artist: $str, genres: $list } ].
 
     ```yaml
-    How Far I'll Go: [Film music]
-    T-Shirt: [NA]
-    Let Me Love You: [Dance, electronic]
-    Rockabye: [NA]
-    Bad And Boujee: [Hip-hop, rap]
-    Any Ol' Barstool: [Country]
-    Play That Song: [Funk]
-    I Got You: [Classic R&B]
-    Rolex: [NA]
-    Hometown Girl: [NA]
+1:
+  song: Shape Of You
+  artist: Ed Sheeran
+  genres: [Pop]
+2:
+  song: Bad And Boujee
+  artist: Migos Featuring Lil Uzi Vert
+  genres: [Hip-hop, rap]
+3:
+  song: That's What I Like
+  artist: Bruno Mars
+  genres: [Pop]
+4:
+  song: I Don't Wanna Live Forever (Fifty Shades Darker)
+  artist: Zayn / Taylor Swift
+  genres: [Pop]
+5:
+  song: Love On The Brain
+  artist: Rihanna
+  genres: [NA]
+6:
+  song: Tunnel Vision
+  artist: Kodak Black
+  genres: [Pop]
+7:
+  song: Paris
+  artist: The Chainsmokers
+  genres: [Dance, electronic]
+8:
+  song: Bounce Back
+  artist: Big Sean
+  genres: [Hip-hop, rap]
+9:
+  song: Rockabye
+  artist: Clean Bandit Featuring Sean Paul & Anne-Marie
+  genres: [NA]
+10:
+  song: Closer
+  artist: The Chainsmokers Featuring Halsey
+  genres: [Dance, electronic]
     ```
 
 ## Backgrounds
@@ -51,7 +82,10 @@ By the way, for a convenient implementation regardless the objective to learn se
 
 __Exception Handling__
 
-As recommended by Andrei on Selenide.org, the PageObject is expected to interact with method not Web Elements with test logics. In cases of sophsticated logics or Web Clawer scenarios, the exceptions are handled with PageObject or abstraction on top of it.
+As recommended by Andrei on Selenide.org, the PageObject is expected to interact with method not Web Elements with test logic. 
+In cases of sophisticated logic or Web Claw scenarios, the exceptions are handled with PageObject or abstraction on top of it.
+
+Selenide has wrapped the Element Extraction operations with Instance Proxy. Within the proxy.invoke(), the logic of invokeAndRetry() will pack exceptions up to a Throwable type with more concise information.
 
 - The error type to capture is __Throwable__, or, more specifically __UIAssertionError__. 
 
@@ -68,9 +102,11 @@ As recommended by Andrei on Selenide.org, the PageObject is expected to interact
     
 ## TODO
 
-- -Try to insert a state to query the 2nd time if simple query cannot return easily patterned result.-
+- Try to introduce multi-thread to run the query faster. 
 
-- Try to introduce multi-thread to run the query faster.
+Selenide relies on Selenium to support multiple browsers if we pay attention on the static methods. 
+The selenide development community is open to support multiple browser support but which is not released. 
+In general, the way is to create multiple WebDrivers and tell out which driver to speak to while calling the proxies. 
 
 
 
