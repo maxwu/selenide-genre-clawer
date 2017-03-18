@@ -1,6 +1,6 @@
 package me.maxwu.genre.app;
 
-import me.maxwu.selenide.GenreBase;
+import me.maxwu.selenide.GenreAppBase;
 import org.yaml.snakeyaml.Yaml;
 import java.util.Map;
 
@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Configuration.screenshots;
 /**
  * Created by maxwu on 3/15/17.
  */
-public class App extends GenreBase {
+public class App extends GenreAppBase {
 
     Map<Integer, Map<String, Object>> map;
 

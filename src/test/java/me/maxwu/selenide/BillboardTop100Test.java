@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selenide.open;
 /**
  * Created by maxwu on 3/14/17.
  */
-public class BillboardTop100Test extends GenreBase {
+public class BillboardTop100Test extends GenreAppBase {
     @After
     public void tearDown(){
         quitDriver();

@@ -8,16 +8,16 @@ import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Configuration.baseUrl;
 /**
  * Created by maxwu on 3/14/17.
  */
-public class GenreBase {
-    static Logger logger = LoggerFactory.getLogger(GenreBase.class.getName());
+public class GenreAppBase {
+    static Logger logger = LoggerFactory.getLogger(GenreAppBase.class.getName());
     WebDriver driver = null;
 
     public void setDriver(){
@@ -33,6 +33,14 @@ public class GenreBase {
         setDriver();
         baseUrl = "http://www.billboard.com/charts/hot-100";
         return open("/", BillboardTop100Page.class);
+    }
+
+    public Map<Integer, Map<String, Object>> getBillboardTop100Map(){
+        return getBillboardTop100Map(100);
+    }
+
+    public Map<Integer, Map<String, Object>> getBillboardTop100Map(int size){
+        return onBillboardTop100Page().getTop100Map(size);
     }
 
     public GooglePage onGooglePage(){
@@ -65,7 +73,7 @@ public class GenreBase {
      * @return ArrayList of genre strings
      */
     public List<String> getSongGenres(String song, String artist){
-        List<String> genres = new ArrayList<>(4);
+        List<String> genres;
         genres = onGooglePage().getSearchFor(keywordSongGenre(song)).getGenres();
         if (genres.get(0).equals("NA")){
             genres = onGooglePage().getSearchFor(keywordGenre(song)).getGenres();

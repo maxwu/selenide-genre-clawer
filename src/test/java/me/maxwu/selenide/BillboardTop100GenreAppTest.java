@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 /**
  * Created by maxwu on 3/15/17.
  */
-public class BillboardTop100GenreTest  extends GenreBase {
+public class BillboardTop100GenreAppTest extends GenreAppBase {
     // Make screenshot on every case
     // @Rule
     // public ScreenShooter makeScreenshotOnFailure = ScreenShooter.failedTests().succeededTests();
