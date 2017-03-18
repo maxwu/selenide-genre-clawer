@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>me.maxwu</groupId>
-    <artifactId>selenide-toy</artifactId>
+    <artifactId>selenide-genre-clawer</artifactId>
     <version>1.0</version>
 
     <properties>

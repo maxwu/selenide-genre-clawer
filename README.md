@@ -1,4 +1,9 @@
 # selenide-genre-clawer
+
+master: [![Build Status](https://travis-ci.org/maxwu/selenide-genre-clawer.svg?branch=master)](https://travis-ci.org/maxwu/selenide-genre-clawer)  
+
+dev: [![Build Status](https://travis-ci.org/maxwu/selenide-genre-clawer.svg?branch=dev)](https://travis-ci.org/maxwu/selenide-genre-clawer)
+
 A clawer to fetch song's genre information from internet. This project is a practice on PageObject with Selenide. 
 Based on it, an app was developed to generate billboard top 100 song list with genre information and dump them into YAML.
 
