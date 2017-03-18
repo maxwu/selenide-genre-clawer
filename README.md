@@ -24,7 +24,7 @@ In general, __83%__ of songs in list have easily patterned Google genre query re
 
 The sample of first 10 songs genre query results. YAML structure is mapped with [$rank : {song: $str, artist: $str, genres: $list } ].
 
-    ```yaml
+```yaml
 1:
   song: Shape Of You
   artist: Ed Sheeran
@@ -65,7 +65,7 @@ The sample of first 10 songs genre query results. YAML structure is mapped with 
   song: Closer
   artist: The Chainsmokers Featuring Halsey
   genres: [Dance, electronic]
-    ```
+```
 
 ## Backgrounds
 
