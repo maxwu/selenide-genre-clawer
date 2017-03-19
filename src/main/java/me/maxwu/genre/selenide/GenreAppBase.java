@@ -2,6 +2,7 @@ package me.maxwu.selenide;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverRunner;
+import me.maxwu.genre.IGenreCmd;
 import me.maxwu.selenide.pageObjects.BillboardTop100Page;
 import me.maxwu.selenide.pageObjects.GooglePage;
 import org.openqa.selenium.WebDriver;
@@ -16,7 +17,7 @@ import static com.codeborne.selenide.Configuration.baseUrl;
 /**
  * Created by maxwu on 3/14/17.
  */
-public class GenreAppBase {
+public class GenreAppBase implements IGenreCmd{
     static Logger logger = LoggerFactory.getLogger(GenreAppBase.class.getName());
     WebDriver driver = null;
 

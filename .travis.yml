@@ -4,8 +4,7 @@ sudo: required
 
 dist: trusty
 
-script: mvn clean test
-#mvn clean install
+script: mvn clean install
 
 before_install:
   - "export DISPLAY=:99.0"
