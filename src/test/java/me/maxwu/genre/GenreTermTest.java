@@ -1,4 +1,4 @@
-package me.maxwu.selenide;
+package me.maxwu.genre;
 
 import me.maxwu.genre.GenreTerm;
 import org.junit.Assert;

@@ -1,5 +1,7 @@
 package me.maxwu.genre;
 
+import org.jetbrains.annotations.Contract;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -138,17 +140,35 @@ public class GenreTerm {
             "123. A capella\n" +
             "124. Euro-House\n" +
             "125. Dance Hall";
-    private static List<String> genreList = null;
 
-    public static synchronized List<String> getGenreList(){
-        if (genreList != null){
-            return genreList;
+    private static List<String> DEFAULT_GENREs;
+
+    static{
+        DEFAULT_GENREs = new ArrayList<>(Arrays.asList("NA"));
+    }
+
+    @Contract(value = " -> !null")
+    public static List<String>  getDefaultGenreList(){
+        return DEFAULT_GENREs;
+    }
+
+    // set to volatile to avoid optimized execution order when reading shall always be after the writing JDK 1.5+
+    private volatile static List<String> genreList = null;
+
+    // DCL (Double Checked Locking) is not necessary here.
+    // The practice is just for fun and reserved for future multi-threading consideration.
+    public static List<String> getGenreList(){
+        if (genreList == null){
+            synchronized (GenreTerm.class){
+               if (genreList == null){
+                   genreList = new ArrayList<String>(128);
+                   Arrays.stream(_genreText.split("\\n")).forEach(ln -> {
+                       String[] words =  ln.split("\\.\\s*", 2);
+                       genreList.add(words[1].trim());
+                   });
+               }
+            }
         }
-        genreList = new ArrayList<String>(128);
-        Arrays.stream(_genreText.split("\\n")).forEach(ln -> {
-            String[] words =  ln.split("\\.\\s*", 2);
-            genreList.add(words[1].trim());
-        });
 
         return genreList;
     }

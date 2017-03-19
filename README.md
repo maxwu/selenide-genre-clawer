@@ -5,6 +5,8 @@
 A clawer to fetch song's genre information from internet. This project is a practice on PageObject with Selenide. 
 Based on it, an app was developed to generate billboard top 100 song list with genre information and dump them into YAML.
 
+Besides selenide, HtmlUnit is introduced as a headless browser to fetch genre results silently without browser window popped up.
+
 ## Targets
 
 Download top 100 billboard tracks information and search genre information with google.
@@ -16,6 +18,12 @@ Download top 100 billboard tracks information and search genre information with 
   - [X] Resolved Exception handling in Page Object with Selenide.
   
   - [X] Improve the success rate (now it is 83% after introduced multiple keywords to query with google)
+
+-[X] From v1.2, introduced JSoup and HtmlUnit as convenient search strategies.
+
+  - [ ] JSoup HttpClient, due to the lack of JavaScript engine, this strategy will move to search on Wikipedia instead.
+  - [X] HtmlUnit query strategy.
+  - [ ] Refactor the query to strategy factory.
 
 The genre list for top 100 billboard songs is accessible on [Github Link](https://github.com/maxwu/selenide-genre-clawer/blob/master/BB_top100_genres.yaml)
 

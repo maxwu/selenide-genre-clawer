@@ -1,9 +1,10 @@
-package me.maxwu.selenide.pageObjects;
+package me.maxwu.genre.selenide.pageObjects;
 
 import com.codeborne.selenide.ex.ElementNotFound;
+import me.maxwu.genre.GenreTerm;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import java.util.ArrayList;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -22,7 +23,7 @@ public class GenreSearchPage {
             genres = Arrays.asList($("#rso div._uX div._XWk").getText().split("/"));
         }catch (ElementNotFound e){
             logger.info("Mark genre to NA due to error \n" + e.toString());
-            genres = new ArrayList<>(Arrays.asList("NA"));
+            genres = GenreTerm.getDefaultGenreList();
         }
         logger.debug(" >>> Genres: " + genres.stream().collect(Collectors.joining(", ")));
         return genres;

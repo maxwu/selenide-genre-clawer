@@ -1,7 +1,6 @@
-package me.maxwu.selenide.pageObjects;
+package me.maxwu.genre.selenide.pageObjects;
 
 import com.codeborne.selenide.ElementsCollection;
-import me.maxwu.selenide.DriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
@@ -9,9 +8,7 @@ import org.slf4j.LoggerFactory;
 
 import static com.codeborne.selenide.Selenide.$$;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 

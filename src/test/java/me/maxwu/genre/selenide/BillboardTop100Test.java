@@ -1,4 +1,4 @@
-package me.maxwu.selenide;
+package me.maxwu.genre.selenide;
 
 import org.junit.*;
 
@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selenide.open;
 /**
  * Created by maxwu on 3/14/17.
  */
-public class BillboardTop100Test extends GenreAppBase {
+public class BillboardTop100Test extends SelenideBase {
     @After
     public void tearDown(){
         quitDriver();

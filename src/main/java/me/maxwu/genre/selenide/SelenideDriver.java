@@ -1,4 +1,4 @@
-package me.maxwu.selenide;
+package me.maxwu.genre.selenide;
 
 /**
  * Created by maxwu on 3/19/17.

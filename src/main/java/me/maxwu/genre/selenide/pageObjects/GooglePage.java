@@ -1,6 +1,5 @@
-package me.maxwu.selenide.pageObjects;
+package me.maxwu.genre.selenide.pageObjects;
 
-import org.jetbrains.annotations.Contract;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

@@ -1,4 +1,4 @@
-package me.maxwu.selenide;
+package me.maxwu.genre.selenide;
 
 import org.junit.*;
 import java.util.List;
@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 /**
  * Created by maxwu on 3/15/17.
  */
-public class BillboardTop100GenreAppTest extends GenreAppBase {
+public class BillboardTop100SelenideTest extends SelenideBase {
     // Make screenshot on every case
     // @Rule
     // public ScreenShooter makeScreenshotOnFailure = ScreenShooter.failedTests().succeededTests();

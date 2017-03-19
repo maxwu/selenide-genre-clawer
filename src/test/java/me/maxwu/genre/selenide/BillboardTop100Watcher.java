@@ -1,4 +1,4 @@
-package me.maxwu.selenide;
+package me.maxwu.genre.selenide;
 
 import org.junit.rules.TestWatcher;
 import org.junit.runner.Description;

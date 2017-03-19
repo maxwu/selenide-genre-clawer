@@ -6,16 +6,22 @@
 
     <groupId>me.maxwu</groupId>
     <artifactId>selenide-genre-clawer</artifactId>
-    <version>1.0</version>
+    <version>1.2</version>
 
     <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
+        <maven.compiler.vesion>3.6.0</maven.compiler.vesion>
+        <maven.jar.vesion>3.0.2</maven.jar.vesion>
         <selenium.version>3.1.0</selenium.version>
         <guava.version>21.0</guava.version>
         <selenide.version>4.3</selenide.version>
         <wdm.version>1.6.0</wdm.version>
+        <jsoup.version>1.10.2</jsoup.version>
+        <htmlUnit.version>2.25</htmlUnit.version>
+        <slf4j.version>1.7.25</slf4j.version>
     </properties>
 
     <repositories>
@@ -57,11 +63,27 @@
             <version>${wdm.version}</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-log4j12 -->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
-            <version>1.7.22</version>
+            <version>${slf4j.version}</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/log4j/log4j -->
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.25</version>
+        </dependency>
+
 
         <!-- YAML formatter -->
         <dependency>
@@ -77,6 +99,19 @@
             <version>15.0</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/org.jsoup/jsoup -->
+        <dependency>
+            <groupId>org.jsoup</groupId>
+            <artifactId>jsoup</artifactId>
+            <version>${jsoup.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>net.sourceforge.htmlunit</groupId>
+            <artifactId>htmlunit</artifactId>
+            <version>${htmlUnit.version}</version>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -84,10 +119,22 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.6.0</version>
+                <version>${maven.compiler.vesion}</version>
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>${maven.jar.vesion}</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>me.maxwu.genre.app.App</mainClass>
+                        </manifest>
+                    </archive>
                 </configuration>
             </plugin>
         </plugins>
