@@ -27,8 +27,9 @@ Download top 100 billboard tracks information and search genre information with 
 
 The genre list for top 100 billboard songs is accessible on [Github Link](https://github.com/maxwu/selenide-genre-clawer/blob/master/BB_top100_genres.yaml)
 
-In general, __83%__ of songs in list have easily patterned Google genre query results.
+In general, __92%__ of songs in list have easily patterned Google genre query results.
 (With multiple google query options, the success rate increased from 47.96% to 83%)
+(With 2nd pattern of genre presentation style on google page, success rate increased from 83% to 92%)
 
 The sample of first 10 songs genre query results. YAML structure is mapped with [$rank : {song: $str, artist: $str, genres: $list } ].
 
@@ -52,7 +53,7 @@ The sample of first 10 songs genre query results. YAML structure is mapped with 
 5:
   song: Love On The Brain
   artist: Rihanna
-  genres: [NA]
+  genres: [Contemporary R&B, Pop]
 6:
   song: Tunnel Vision
   artist: Kodak Black
@@ -68,7 +69,7 @@ The sample of first 10 songs genre query results. YAML structure is mapped with 
 9:
   song: Rockabye
   artist: Clean Bandit Featuring Sean Paul & Anne-Marie
-  genres: [NA]
+  genres: [Dance, electronic, Pop]
 10:
   song: Closer
   artist: The Chainsmokers Featuring Halsey
