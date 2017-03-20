@@ -7,6 +7,50 @@ Based on it, an app was developed to generate billboard top 100 song list with g
 
 Besides selenide, HtmlUnit is introduced as a headless browser to fetch genre results silently without browser window popped up.
 
+## User Guide
+
+### Java Application Cli Options
+
+"-h": Show help message.
+
+"-n": Size of song list fetched from BillBoard Top100 music.
+
+"-c": Case insensitive client type from {"HtmlUnit", "Selenide" and Jsoup (in progress)}
+   
+   HtmlUnit is the default client type.
+    
+   Using Selenide requests Chrome Browser configured up with Selenium and WebDriverManager.
+   
+Example:
+```shell
+Running me.maxwu.genre.app.App -n 20
+Got total 20 songs
+1:
+  song: Shape Of You
+  artist: Ed Sheeran
+  genres: [Pop]
+2:
+  song: Bad And Boujee
+  artist: Migos Featuring Lil Uzi Vert
+  genres: [Hip-hop, rap]
+
+# ... more logs ...
+
+19:
+  song: Green Light
+  artist: Lorde
+  genres: [Neo-soul]
+20:
+  song: Cold
+  artist: Maroon 5 Featuring Future
+  genres: [Electronic dance music]
+
+Success rate = 100.00%
+
+Process finished with exit code 0
+
+```
+
 ## Targets
 
 Download top 100 billboard tracks information and search genre information with google.
