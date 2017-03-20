@@ -35,6 +35,7 @@ public class BillboardTop100Page {
             logger.debug("rank : " + rank);
             String song = rowDiv.findElement(By.cssSelector("h2.chart-row__song")).getText().trim();
             logger.debug("song : " + song);
+            // Mixed 3 "h3" elements and 97 "a" elements.
             String artist = rowDiv.findElement(By.cssSelector(".chart-row__artist")).getText().trim();
             logger.debug("artist : " + artist);
 

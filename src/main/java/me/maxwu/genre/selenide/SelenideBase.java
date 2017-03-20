@@ -14,6 +14,8 @@ import java.util.Map;
 
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Configuration.baseUrl;
+import static me.maxwu.genre.GenreTerm.isDefaultGenreList;
+
 /**
  * Created by maxwu on 3/14/17.
  */
@@ -21,10 +23,10 @@ public class SelenideBase implements IGenreCmd{
     static Logger logger = LoggerFactory.getLogger(SelenideBase.class.getName());
     WebDriver driver = null;
 
-    public void setDriver(){
+    private void setDriver(){
         if (DriverFactory.hasQuit(driver)) {
             driver = DriverFactory.getChromeDriver();
-            //driver = DriverFactory.getPhantomJsDriver();
+
             WebDriverRunner.setWebDriver(driver);
             Configuration.reportsFolder = "target";
         }
@@ -40,14 +42,16 @@ public class SelenideBase implements IGenreCmd{
         return getBillboardTop100Map(100);
     }
 
-    public Map<Integer, Map<String, Object>> getBillboardTop100Map(int size){
-        return onBillboardTop100Page().getTop100Map(size);
+    public Map<Integer, Map<String, Object>> getBillboardTop100Map(int size) {
+        Map<Integer, Map<String, Object>> map = onBillboardTop100Page().getTop100Map(size);
+        quitDriver();
+        return map;
     }
 
-    public GooglePage onGooglePage(){
-       setDriver();
-       baseUrl = "http://google.com";
-       return open("/", GooglePage.class);
+    public GooglePage onGooglePage() {
+        setDriver();
+        baseUrl = "http://google.com";
+        return open("/", GooglePage.class);
     }
 
     @org.jetbrains.annotations.Contract(pure = true)
@@ -76,12 +80,13 @@ public class SelenideBase implements IGenreCmd{
     public List<String> getSongGenres(String song, String artist){
         List<String> genres;
         genres = onGooglePage().getSearchFor(keywordSongGenre(song)).getGenres();
-        if (genres.get(0).equals("NA")){
+        if (isDefaultGenreList(genres)){
             genres = onGooglePage().getSearchFor(keywordGenre(song)).getGenres();
         }
-        if ((genres.get(0).equals("NA")) && (!artist.isEmpty())) {
+        if (isDefaultGenreList(genres) && (!artist.isEmpty())) {
             genres = onGooglePage().getSearchFor(keywordArtistGenre(song, artist)).getGenres();
         }
+        quitDriver();
         return genres;
     }
 

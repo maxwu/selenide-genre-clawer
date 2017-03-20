@@ -6,10 +6,12 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by maxwu on 3/19/17.
@@ -43,6 +45,16 @@ public class JsoupBase implements IGenreCmd{
             genres = GenreTerm.getDefaultGenreList();
         }
         return genres;
+    }
+
+    public Map<Integer, Map<String, Object>> getBillboardTop100Map(){
+        return getBillboardTop100Map(100);
+    }
+
+    public Map<Integer, Map<String, Object>> getBillboardTop100Map(int size) {
+        Map<Integer, Map<String, Object>> map = null;
+        // FIXME: Jsoup to be implemented.
+        throw (new NotImplementedException());
     }
 
     public static void main(String[] args){

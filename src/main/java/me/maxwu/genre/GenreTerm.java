@@ -141,15 +141,14 @@ public class GenreTerm {
             "124. Euro-House\n" +
             "125. Dance Hall";
 
-    private static List<String> DEFAULT_GENREs;
-
-    static{
-        DEFAULT_GENREs = new ArrayList<>(Arrays.asList("NA"));
+    @Contract(value = " -> !null")
+    public static List<String> getDefaultGenreList(){
+        return new ArrayList<>(Arrays.asList("NA"));
     }
 
-    @Contract(value = " -> !null")
-    public static List<String>  getDefaultGenreList(){
-        return DEFAULT_GENREs;
+    @Contract(value = "null -> false")
+    public static boolean isDefaultGenreList(List<String> genres){
+        return ((genres!=null) && (!genres.isEmpty())&&(genres.get(0).equals("NA"))&&(genres.size()==1));
     }
 
     // set to volatile to avoid optimized execution order when reading shall always be after the writing JDK 1.5+

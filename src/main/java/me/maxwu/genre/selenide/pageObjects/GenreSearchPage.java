@@ -23,7 +23,7 @@ public class GenreSearchPage {
             genres = Arrays.asList($("#rso div._uX div._XWk").getText().split("/"));
         }catch (ElementNotFound e){
             logger.info("Mark genre to NA due to error \n" + e.toString());
-            genres = GenreTerm.getDefaultGenreList();
+            genres = GenreTerm.getGenreList();
         }
         logger.debug(" >>> Genres: " + genres.stream().collect(Collectors.joining(", ")));
         return genres;
