@@ -1,6 +1,7 @@
 # Genre Clawer
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Build Status](https://travis-ci.org/maxwu/selenide-genre-clawer.svg?branch=master)](https://travis-ci.org/maxwu/selenide-genre-clawer)  [![Build Status](https://travis-ci.org/maxwu/selenide-genre-clawer.svg?branch=dev)](https://travis-ci.org/maxwu/selenide-genre-clawer)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) 
+[![Build Status](https://travis-ci.org/maxwu/selenide-genre-clawer.svg?branch=master)](https://travis-ci.org/maxwu/selenide-genre-clawer) [![codecov](https://codecov.io/gh/maxwu/Genre-Clawer/branch/master/graph/badge.svg)](https://codecov.io/gh/maxwu/Genre-Clawer) [![Build Status](https://travis-ci.org/maxwu/selenide-genre-clawer.svg?branch=dev)](https://travis-ci.org/maxwu/selenide-genre-clawer) [![codecov](https://codecov.io/gh/maxwu/Genre-Clawer/branch/dev/graph/badge.svg)](https://codecov.io/gh/maxwu/Genre-Clawer)
 
 A clawer to fetch song's genre information from internet. This project is a practice on PageObject with Selenide. 
 Based on it, an app was developed to generate billboard top 100 song list with genre information and dump them into YAML.
@@ -9,7 +10,7 @@ Besides selenide, HtmlUnit is introduced as a headless browser to fetch genre re
 
 ## User Guide
 
-### Java Application Cli Options
+### Java Application Cli
 
 Usage: 
 
@@ -26,10 +27,11 @@ Option is case insensitive string of client name.
 >    
 >   Using Selenide requests Chrome Browser configured up with Selenium and WebDriverManager.
    
-Example:
+#### Example 1: Fetch billboard top 5 songs genres
+By default, HtmlUnit headless browser is used in this example.
 ```shell
 # To fetch billboard top5 songs genres:
->>java -jar selenide-genre-clawer-1.2.jar -n5
+>>>java -jar ./target/Genre-Clawer-1.3.jar -n5
 Got total 5 songs
 1:
   song: Shape Of You
@@ -53,9 +55,25 @@ Got total 5 songs
   genres: [Contemporary R&B, Pop]
 
 Success rate = 100.00%
-
-Process finished with exit code 0
 ```
+
+#### Example 2: Fetch genres for song name "Love On The Brain" and artist name "Rihanna"
+Obviously, this example will utilize default HtmlUnit headless browser.
+
+```shell
+>>java -jar ./target/Genre-Clawer-1.3.jar -s "Love On The Brain" -a "Rihanna"
+Got total 1 songs
+1:
+  song: Love On The Brain
+  artist: Rihanna
+  genres: [Contemporary R&B, Pop]
+
+Success rate = 100.00%
+```
+
+### Maven 
+
+(TBD)
 
 ## Targets
 

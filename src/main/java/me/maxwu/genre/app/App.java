@@ -9,8 +9,10 @@ import org.apache.commons.cli.DefaultParser;
 import org.apache.commons.cli.Options;
 import org.yaml.snakeyaml.Yaml;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 import static com.codeborne.selenide.Configuration.screenshots;
 import static me.maxwu.genre.GenreTerm.isDefaultGenreList;
@@ -20,10 +22,16 @@ import static me.maxwu.genre.GenreTerm.isDefaultGenreList;
  */
 public class App  {
     Map<Integer, Map<String, Object>> map;
-    static IGenreCmd commander;
-    static int size;
+    private IGenreCmd commander;
+    private int size;
+    private String song = null;
+    private String artist = null;
 
     public App(String clientOpt, int size) {
+        this(clientOpt, size, null, null);
+    }
+
+    public App(String clientOpt, int size, String song, String artist){
         if (clientOpt.equals("HTMLUNIT")){
             commander = new HtmlUnitBase();
         }else if (clientOpt.equals("SELENIDE")){
@@ -31,10 +39,20 @@ public class App  {
             commander = new SelenideBase();
         }
 
-        map = commander.getBillboardTop100Map(size);
+        if ((song != null) && (!song.isEmpty())){
+            map = new HashMap<Integer, Map<String, Object>>(){{
+                put(Integer.valueOf(1), new HashMap<String, Object>(){{
+                    put("song", song);
+                    put("artist", artist);
+                }});
+            }};
+        }else {
+            map = commander.getBillboardTop100Map(size);
+        }
         System.out.println("Got total " + map.size() + " songs");
 
         map.forEach((k, v) -> v.put("genres", commander.getSongGenres(v.get("song").toString(), v.get("artist").toString())));
+
     }
 
     private static void showHelpAndExit(int status){
@@ -47,11 +65,15 @@ public class App  {
         options.addOption("h", false, "Show help and exit");
         options.addOption("c", true, "Sets client to HtmlUnit(default), Selenide or Jsoup");
         options.addOption("n", true, "Size of song list from Billboard Top100");
+        options.addOption("s", true, "Song name");
+        options.addOption("a", true, "Artist name if song is specified");
         CommandLineParser parser = new DefaultParser();
         CommandLine cli = null;
         // Default configurations:
         String clientOpt = "HTMLUNIT";
         int size = 10;
+        String song = null;
+        String artist = null;
 
         try {
             cli = parser.parse(options, args);
@@ -64,11 +86,18 @@ public class App  {
             if(cli.hasOption("n")) {
                 size = Integer.valueOf(cli.getOptionValue("n")).intValue();
             }
+            if(cli.hasOption("s")) {
+                song = cli.getOptionValue("s");
+            }
+            if(cli.hasOption("a")) {
+                artist = cli.getOptionValue("a");
+            }
         }catch (Exception e){
+            e.printStackTrace();
             showHelpAndExit(-1);
         }
 
-        return new App(clientOpt, size);
+        return new App(clientOpt, size, song, artist);
     }
 
     public static void main(String[] args){
