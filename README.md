@@ -85,7 +85,7 @@ These are on list for v1.4 as next release, which is open for recommendations.
 
 Usage: 
 
->java -jar selenide-genre-clawer-1.2.jar [-h]|[-n ${size}] [-c ${client}]
+>java -jar ./target/Genre-Clawer-1.3.jar [-h] | [-n ${size}] [-c ${client}] [-s ${song} | [-a ${artist]]
 >
 >"-h": Show help message and exit.
 >
@@ -93,10 +93,14 @@ Usage:
 >
 >"-c": Case insensitive client type from {"HtmlUnit", "Selenide" and Jsoup (in progress)}. 
 Option is case insensitive string of client name.
->  
 >   HtmlUnit is the default client type.
->    
 >   Using Selenide requests Chrome Browser configured up with Selenium and WebDriverManager.
+>
+>"-s": Song name in string to query genres for a specific music piece.
+>   Song name is recommended to wrapped with quotation marks.
+>
+>"-a": Artist name in string to support the above query with song name.
+>   Artist name is recommended to wrapped with quotation marks.
    
 #### Example 1: Fetch billboard top 5 songs genres
 By default, HtmlUnit headless browser is used in this example.
