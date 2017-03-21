@@ -29,7 +29,58 @@ Besides selenide, HtmlUnit is introduced as a headless browser to fetch genre re
     <version>v1.3</version>
 </dependency>
 ```
- 
+
+With above dependencies with maven, here is a quick sample to query genre list with song information.
+
+```Java
+import me.maxwu.genre.htmlUnit.HtmlUnitBase;
+
+public class GenreCli {
+    public static void main(String[] args) {
+        System.out.println(
+            "Song: That's What I Like, Genre:"
+                + new HtmlUnitBase()
+                .getSongGenres("That's What I Like", "Bruno Mars")
+        );
+    }
+}
+```
+
+```
+# Execution Logs
+Song: That's What I Like, Genre:[Pop]
+```
+Another sample to use HtmlUnit client in both billboard top100 song list and genre fetching. 
+
+```Java
+import me.maxwu.genre.htmlUnit.HtmlUnitBase;
+
+public class CliApp {
+    public static void main(String[] args){
+        new HtmlUnitBase()
+            .getBillboardTop100Map(4)
+            .values()
+            .forEach(s -> System.out.println(
+                "Song: " + s.get("song") + ", Genre:"
+                    + new HtmlUnitBase()
+                        .getSongGenres(s.get("song").toString(), s.get("artist").toString()) )
+            );
+    }
+}
+```
+
+```
+#Execution logs
+Song: Shape Of You, Genre:[Pop]
+Song: That's What I Like, Genre:[Pop]
+Song: Bad And Boujee, Genre:[Hip-hop, rap]
+Song: I Don't Wanna Live Forever (Fifty Shades Darker), Genre:[Pop]
+```
+
+Since in most situation people will not utilize multiple clients unless in testing, app package is in progress of an update to support a simplified application and efficient improvement.
+These are on list for v1.4 as next release, which is open for recommendations.
+
+
 ### Java Application Cli
 
 Usage: 
@@ -49,9 +100,9 @@ Option is case insensitive string of client name.
    
 #### Example 1: Fetch billboard top 5 songs genres
 By default, HtmlUnit headless browser is used in this example.
-```shell
+```
 # To fetch billboard top5 songs genres:
->>>java -jar ./target/Genre-Clawer-1.3.jar -n5
+>>java -jar ./target/Genre-Clawer-1.3.jar -n5
 Got total 5 songs
 1:
   song: Shape Of You
@@ -80,7 +131,7 @@ Success rate = 100.00%
 #### Example 2: Fetch genres for song name "Love On The Brain" and artist name "Rihanna"
 Obviously, this example will utilize default HtmlUnit headless browser.
 
-```shell
+```
 >>java -jar ./target/Genre-Clawer-1.3.jar -s "Love On The Brain" -a "Rihanna"
 1:
   song: Love On The Brain

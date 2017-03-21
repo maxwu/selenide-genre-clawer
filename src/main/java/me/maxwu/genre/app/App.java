@@ -1,4 +1,4 @@
-package me.maxwu.genre.appTest;
+package me.maxwu.genre.app;
 
 import me.maxwu.genre.IGenreCmd;
 import me.maxwu.genre.htmlUnit.HtmlUnitBase;
@@ -19,12 +19,15 @@ import static me.maxwu.genre.GenreTerm.isDefaultGenreList;
 /**
  * Created by maxwu on 3/15/17.
  */
-public class App  {
+public class App{
     Map<Integer, Map<String, Object>> map;
     private IGenreCmd commander;
-    private int size;
-    private String song = null;
-    private String artist = null;
+    private static final String defaultClientOpt = "HTMLUNIT";
+    private static final int defaultSize = 10;
+
+    public App() {
+        this(defaultClientOpt, defaultSize, null, null);
+    }
 
     public App(String clientOpt, int size) {
         this(clientOpt, size, null, null);
@@ -54,6 +57,10 @@ public class App  {
 
     }
 
+    public Map<Integer, Map<String, Object>> getMap() {
+        return map;
+    }
+
     public static void showHelpAndExit(int status){
         System.out.println("Please visit https://github.com/maxwu/Genre-Clawer for more information.");
         System.exit(status);
@@ -67,15 +74,14 @@ public class App  {
         options.addOption("s", true, "Song name");
         options.addOption("a", true, "Artist name if song is specified");
         CommandLineParser parser = new DefaultParser();
-        CommandLine cli = null;
-        // Default configurations:
-        String clientOpt = "HTMLUNIT";
-        int size = 10;
+
+        String clientOpt = defaultClientOpt;
+        int size = defaultSize;
         String song = null;
         String artist = null;
 
         try {
-            cli = parser.parse(options, args);
+            CommandLine cli = parser.parse(options, args);
             if(cli.hasOption("h")) {
                 showHelpAndExit(0);
             }

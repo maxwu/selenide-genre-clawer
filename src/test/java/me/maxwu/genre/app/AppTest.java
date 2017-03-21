@@ -1,13 +1,12 @@
-package me.maxwu.genre.appTest;
+package me.maxwu.genre.app;
 
 import org.junit.Assert;
 import org.junit.Test;
 import org.yaml.snakeyaml.Yaml;
-
 import java.util.List;
 import java.util.Map;
 
-import static me.maxwu.genre.appTest.App.parseCli;
+import static me.maxwu.genre.app.App.parseCli;
 
 /**
  * Created by maxwu on 3/22/17.
@@ -27,6 +26,13 @@ public class AppTest {
     public void testBillboardTop2(){
         String[] args = {"-n", "2"};
         Map<Integer, Map<String, Object>> map = parseCli(args).map;
+        System.out.println(new Yaml().dump(map));
+        Assert.assertEquals(2, map.size());
+    }
+
+    @Test
+    public void testBillboardTop10Default(){
+        Map<Integer, Map<String, Object>> map = new App().map;
         System.out.println(new Yaml().dump(map));
         Assert.assertEquals(2, map.size());
     }
