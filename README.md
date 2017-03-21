@@ -1,6 +1,7 @@
 # Genre Clawer
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)  [![](https://jitpack.io/v/maxwu/Genre-Clawer.svg)](https://jitpack.io/#maxwu/Genre-Clawer)
+
 [![Build Status](https://travis-ci.org/maxwu/Genre-Clawer.svg?branch=master)](https://travis-ci.org/maxwu/Genre-Clawer) [![codecov](https://codecov.io/gh/maxwu/Genre-Clawer/branch/master/graph/badge.svg)](https://codecov.io/gh/maxwu/Genre-Clawer) [![Build Status](https://travis-ci.org/maxwu/Genre-Clawer.svg?branch=dev)](https://travis-ci.org/maxwu/Genre-Clawer) [![codecov](https://codecov.io/gh/maxwu/Genre-Clawer/branch/dev/graph/badge.svg)](https://codecov.io/gh/maxwu/Genre-Clawer)
 
 A clawer to fetch song's genre information from internet. This project is a practice on PageObject with Selenide. 
@@ -10,6 +11,24 @@ Besides selenide, HtmlUnit is introduced as a headless browser to fetch genre re
 
 ## User Guide
 
+### Maven 
+
+```xml
+<repositories>
+    <repository>
+        <id>jitpack.io</id>
+ 		<url>https://jitpack.io</url>
+    </repository>
+ </repositories>
+ 
+<dependency>
+    <groupId>com.github.User</groupId>
+    <artifactId>Repo</artifactId>
+    <version>Tag</version>
+</dependency>
+```
+ 	
+ 
 ### Java Application Cli
 
 Usage: 
@@ -70,10 +89,6 @@ Got total 1 songs
 
 Success rate = 100.00%
 ```
-
-### Maven 
-
-(TBD)
 
 ## Targets
 
