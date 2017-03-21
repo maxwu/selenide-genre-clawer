@@ -3,6 +3,7 @@ package me.maxwu.genre.selenide;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverRunner;
 import me.maxwu.genre.IGenreCmd;
+import me.maxwu.genre.search.GoogleKeyword;
 import me.maxwu.genre.selenide.pageObjects.BillboardTop100Page;
 import me.maxwu.genre.selenide.pageObjects.GooglePage;
 import org.openqa.selenium.WebDriver;
@@ -14,6 +15,7 @@ import java.util.Map;
 
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Configuration.baseUrl;
+import static me.maxwu.genre.GenreTerm.getDefaultGenreList;
 import static me.maxwu.genre.GenreTerm.isDefaultGenreList;
 
 /**
@@ -77,18 +79,19 @@ public class SelenideBase implements IGenreCmd{
      * @param song
      * @return ArrayList of genre strings
      */
-    public List<String> getSongGenres(String song, String artist){
-        List<String> genres;
-        genres = onGooglePage().getSearchFor(keywordSongGenre(song)).getGenres();
-        if (isDefaultGenreList(genres)){
-            genres = onGooglePage().getSearchFor(keywordGenre(song)).getGenres();
-        }
-        if (isDefaultGenreList(genres) && (!artist.isEmpty())) {
-            genres = onGooglePage().getSearchFor(keywordArtistGenre(song, artist)).getGenres();
+    @Override
+    public List<String> getSongGenres(String song, String artist) {
+        for (String keyword : new GoogleKeyword().getKeyWordList(song, artist)) {
+            List<String> genres = onGooglePage().getSearchFor(keyword).getGenres();
+            if (!isDefaultGenreList(genres)) {
+                quitDriver();
+                return genres;
+            }
         }
         quitDriver();
-        return genres;
+        return getDefaultGenreList();
     }
+
 
     public static void quitDriver(){
         DriverFactory.quitDriver(WebDriverRunner.getWebDriver());

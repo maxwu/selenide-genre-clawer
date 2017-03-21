@@ -48,8 +48,8 @@ public class App  {
             }};
         }else {
             map = commander.getBillboardTop100Map(size);
+            System.out.println("Got total " + map.size() + " songs");
         }
-        System.out.println("Got total " + map.size() + " songs");
 
         map.forEach((k, v) -> v.put("genres", commander.getSongGenres(v.get("song").toString(), v.get("artist").toString())));
 
@@ -60,7 +60,7 @@ public class App  {
         System.exit(status);
     }
 
-    private static App parseCli(String[] args){
+    public static App parseCli(String[] args){
         Options options = new Options();
         options.addOption("h", false, "Show help and exit");
         options.addOption("c", true, "Sets client to HtmlUnit(default), Selenide or Jsoup");

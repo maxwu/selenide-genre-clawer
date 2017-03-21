@@ -19,6 +19,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+import static me.maxwu.genre.GenreTerm.getDefaultGenreList;
 import static me.maxwu.genre.GenreTerm.isDefaultGenreList;
 import static me.maxwu.genre.selenide.SelenideBase.keywordArtistGenre;
 import static me.maxwu.genre.selenide.SelenideBase.keywordGenre;
@@ -43,14 +44,13 @@ public class HtmlUnitBase implements IGenreCmd{
 
     @Override
     public List<String> getSongGenres(String song, String artist) {
-        List<String> genres = searchGenreFor(keywordSongGenre(song));
-        if (isDefaultGenreList(genres)){
-            genres = searchGenreFor(keywordGenre(song));
+        for( String keyword : new GoogleKeyword().getKeyWordList(song, artist)){
+            List<String> genres = searchGenreFor(keyword);
+            if (!isDefaultGenreList(genres)){
+                return genres;
+            }
         }
-        if (isDefaultGenreList(genres)) {
-            genres = searchGenreFor(keywordArtistGenre(song, artist));
-        }
-        return genres;
+        return getDefaultGenreList();
     }
 
     private WebClient getWebClient(){

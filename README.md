@@ -81,7 +81,6 @@ Obviously, this example will utilize default HtmlUnit headless browser.
 
 ```shell
 >>java -jar ./target/Genre-Clawer-1.3.jar -s "Love On The Brain" -a "Rihanna"
-Got total 1 songs
 1:
   song: Love On The Brain
   artist: Rihanna

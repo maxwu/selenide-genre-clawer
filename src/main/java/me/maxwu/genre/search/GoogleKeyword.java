@@ -5,6 +5,7 @@ import me.maxwu.genre.IGenreKeyword;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -16,7 +17,11 @@ public class GoogleKeyword implements IGenreKeyword{
         return "/";
     }
 
-    public <T> List<T> getKeyWordList(String song, String artist){
-        return null;
+    public List<String> getKeyWordList(String song, String artist){
+        return new ArrayList<String>(){{
+            add(song + " song genre");
+            add(song + " genre");
+            add(artist + " - " + song + " genre");
+        }};
     }
 }
