@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)  [![](https://jitpack.io/v/maxwu/Genre-Clawer.svg)](https://jitpack.io/#maxwu/Genre-Clawer)
 
-[![Build Status](https://travis-ci.org/maxwu/Genre-Clawer.svg?branch=master)](https://travis-ci.org/maxwu/Genre-Clawer) [![codecov](https://codecov.io/gh/maxwu/Genre-Clawer/branch/master/graph/badge.svg)](https://codecov.io/gh/maxwu/Genre-Clawer) [![Build Status](https://travis-ci.org/maxwu/Genre-Clawer.svg?branch=dev)](https://travis-ci.org/maxwu/Genre-Clawer) [![codecov](https://codecov.io/gh/maxwu/Genre-Clawer/branch/dev/graph/badge.svg)](https://codecov.io/gh/maxwu/Genre-Clawer)
+[![Build Status](https://travis-ci.org/maxwu/Genre-Clawer.svg?branch=master)](https://travis-ci.org/maxwu/Genre-Clawer/branch/master) [![codecov](https://codecov.io/gh/maxwu/Genre-Clawer/branch/master/graph/badge.svg)](https://codecov.io/gh/maxwu/Genre-Clawer) [![Build Status](https://travis-ci.org/maxwu/Genre-Clawer.svg?branch=dev)](https://travis-ci.org/maxwu/Genre-Clawer) [![codecov](https://codecov.io/gh/maxwu/Genre-Clawer/branch/dev/graph/badge.svg)](https://codecov.io/gh/maxwu/Genre-Clawer/branch/dev)
 
 A clawer to fetch song's genre information from internet. This project is a practice on PageObject with Selenide. 
 Based on it, an app was developed to generate billboard top 100 song list with genre information and dump them into YAML.
@@ -20,14 +20,15 @@ Besides selenide, HtmlUnit is introduced as a headless browser to fetch genre re
         <url>https://jitpack.io</url>
     </repository>
  </repositories>
- 
+```
+
+```xml
 <dependency>
-    <groupId>com.github.User</groupId>
-    <artifactId>Repo</artifactId>
+    <groupId>com.github.maxwu</groupId>
+    <artifactId>Genre-Clawer</artifactId>
     <version>v1.3</version>
 </dependency>
 ```
- 	
  
 ### Java Application Cli
 
