@@ -17,7 +17,7 @@ Besides selenide, HtmlUnit is introduced as a headless browser to fetch genre re
 <repositories>
     <repository>
         <id>jitpack.io</id>
- 		<url>https://jitpack.io</url>
+        <url>https://jitpack.io</url>
     </repository>
  </repositories>
  
