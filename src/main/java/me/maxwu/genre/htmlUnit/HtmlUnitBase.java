@@ -4,9 +4,10 @@ import com.gargoylesoftware.htmlunit.BrowserVersion;
 import com.gargoylesoftware.htmlunit.SilentCssErrorHandler;
 import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.*;
-import me.maxwu.genre.GenreKeyword;
+import me.maxwu.genre.IGenreKeyword;
 import me.maxwu.genre.GenreTerm;
 import me.maxwu.genre.IGenreCmd;
+import me.maxwu.genre.search.GoogleKeyword;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -15,11 +16,9 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-import static me.maxwu.genre.GenreTerm.getDefaultGenreList;
 import static me.maxwu.genre.GenreTerm.isDefaultGenreList;
 import static me.maxwu.genre.selenide.SelenideBase.keywordArtistGenre;
 import static me.maxwu.genre.selenide.SelenideBase.keywordGenre;
@@ -75,7 +74,7 @@ public class HtmlUnitBase implements IGenreCmd{
                     throw new RuntimeException("0 div found for genres");
                 }
                 result = divs.stream().map(d -> d.getTextContent().trim())
-                        .collect(Collectors.joining(GenreKeyword.getDelimiter()));
+                        .collect(Collectors.joining(new GoogleKeyword().getDelimiter()));
             }else{
                 result = divs.get(0).getTextContent();
             }

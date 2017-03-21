@@ -2,6 +2,7 @@ package me.maxwu.genre.selenide.pageObjects;
 
 import com.codeborne.selenide.ex.ElementNotFound;
 import me.maxwu.genre.GenreTerm;
+import me.maxwu.genre.search.GoogleKeyword;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -16,11 +17,12 @@ import static com.codeborne.selenide.Selenide.$;
 public class GenreSearchPage {
     static Logger logger = LoggerFactory.getLogger(GenreSearchPage.class.getName());
 
-    //getGenreDiv().should(exist);
     public List<String> getGenres(){
         List<String> genres;
         try{
-            genres = Arrays.asList($("#rso div._uX div._XWk").getText().split("/"));
+            genres = Arrays.asList($("#rso div._uX div._XWk")
+                    .getText()
+                    .split(new GoogleKeyword().getDelimiter()));
         }catch (ElementNotFound e){
             logger.info("Mark genre to NA due to error \n" + e.toString());
             genres = GenreTerm.getGenreList();

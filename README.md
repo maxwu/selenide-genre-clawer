@@ -11,20 +11,26 @@ Besides selenide, HtmlUnit is introduced as a headless browser to fetch genre re
 
 ### Java Application Cli Options
 
-"-h": Show help message.
+Usage: 
 
-"-n": Size of song list fetched from BillBoard Top100 music.
-
-"-c": Case insensitive client type from {"HtmlUnit", "Selenide" and Jsoup (in progress)}
-   
-   HtmlUnit is the default client type.
-    
-   Using Selenide requests Chrome Browser configured up with Selenium and WebDriverManager.
+>java -jar selenide-genre-clawer-1.2.jar [-h]|[-n ${size}] [-c ${client}]
+>
+>"-h": Show help message and exit.
+>
+>"-n": Size of song list fetched from BillBoard Top100 music. This option is int type and defaults to 10.
+>
+>"-c": Case insensitive client type from {"HtmlUnit", "Selenide" and Jsoup (in progress)}. 
+Option is case insensitive string of client name.
+>  
+>   HtmlUnit is the default client type.
+>    
+>   Using Selenide requests Chrome Browser configured up with Selenium and WebDriverManager.
    
 Example:
 ```shell
-Running me.maxwu.genre.app.App -n 20
-Got total 20 songs
+# To fetch billboard top5 songs genres:
+>>java -jar selenide-genre-clawer-1.2.jar -n5
+Got total 5 songs
 1:
   song: Shape Of You
   artist: Ed Sheeran
@@ -33,22 +39,22 @@ Got total 20 songs
   song: Bad And Boujee
   artist: Migos Featuring Lil Uzi Vert
   genres: [Hip-hop, rap]
-
-# ... more logs ...
-
-19:
-  song: Green Light
-  artist: Lorde
-  genres: [Neo-soul]
-20:
-  song: Cold
-  artist: Maroon 5 Featuring Future
-  genres: [Electronic dance music]
+3:
+  song: That's What I Like
+  artist: Bruno Mars
+  genres: [Pop]
+4:
+  song: I Don't Wanna Live Forever (Fifty Shades Darker)
+  artist: Zayn / Taylor Swift
+  genres: [Pop]
+5:
+  song: Love On The Brain
+  artist: Rihanna
+  genres: [Contemporary R&B, Pop]
 
 Success rate = 100.00%
 
 Process finished with exit code 0
-
 ```
 
 ## Targets
