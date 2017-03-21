@@ -1,14 +1,13 @@
-package me.maxwu.genre.app;
+package me.maxwu.genre.appTest;
 
 import org.junit.Assert;
 import org.junit.Test;
 import org.yaml.snakeyaml.Yaml;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import static me.maxwu.genre.app.App.parseCli;
+import static me.maxwu.genre.appTest.App.parseCli;
 
 /**
  * Created by maxwu on 3/22/17.

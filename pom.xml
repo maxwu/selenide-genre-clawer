@@ -152,7 +152,7 @@
                     </filters>
                     <transformers>
                         <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                            <mainClass>me.maxwu.genre.app.App</mainClass>
+                            <mainClass>me.maxwu.genre.appTest.App</mainClass>
                         </transformer>
                     </transformers>
                 </configuration>

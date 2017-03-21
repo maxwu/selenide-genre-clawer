@@ -1,4 +1,4 @@
-package me.maxwu.genre.app;
+package me.maxwu.genre.appTest;
 
 import me.maxwu.genre.IGenreCmd;
 import me.maxwu.genre.htmlUnit.HtmlUnitBase;
@@ -12,7 +12,6 @@ import org.yaml.snakeyaml.Yaml;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 
 import static com.codeborne.selenide.Configuration.screenshots;
 import static me.maxwu.genre.GenreTerm.isDefaultGenreList;
@@ -55,7 +54,7 @@ public class App  {
 
     }
 
-    private static void showHelpAndExit(int status){
+    public static void showHelpAndExit(int status){
         System.out.println("Please visit https://github.com/maxwu/Genre-Clawer for more information.");
         System.exit(status);
     }

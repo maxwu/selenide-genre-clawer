@@ -38,7 +38,7 @@
           </filters>
           <transformers>
             <transformer>
-              <mainClass>me.maxwu.genre.app.App</mainClass>
+              <mainClass>me.maxwu.genre.appTest.App</mainClass>
             </transformer>
           </transformers>
         </configuration>
