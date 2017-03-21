@@ -24,7 +24,7 @@ Besides selenide, HtmlUnit is introduced as a headless browser to fetch genre re
 <dependency>
     <groupId>com.github.User</groupId>
     <artifactId>Repo</artifactId>
-    <version>Tag</version>
+    <version>v1.3</version>
 </dependency>
 ```
  	
@@ -203,8 +203,7 @@ Selenide relies on Selenium to support multiple browsers if we pay attention on 
 The selenide development community is open to support multiple browser support but which is not released. 
 In general, the way is to create multiple WebDrivers and tell out which driver to speak to while calling the proxies. 
 
-- Add simple HttpClient clawer solution and make cross check with selenide.
-  As a learning practice, cross-check is also a common way for API testing.
-  
+- Add JUnit tests for v1.3 cli functions.
+
 - Create Jenkins task to [http://jenkins.maxwu.me](http://jenkins.maxwu.me) and package this project with Pipeline.
 
