@@ -160,17 +160,22 @@ The sample of first 10 songs genre query results. YAML structure is mapped with 
 
 ## Backgrounds
 
-This is inspired by a post found in super market notice wall. 
-It described an individual Java program to generate playlist based on genres in order.
+This project is inspired by a post found in super market notice wall. 
+It described an individual Java program to generate playlist based on a specified genre list mapped to time-sequence.
+The rough analysis divided this problem to two phases, genre tagging and automatic recommendation/randomization algorithm. Current Genre-Clawer is the tool to solve first sub-problem.
 
 This selenide maven project is developed as a fast prototype to verify an idea to fetch genre tags via Google search engine.
 At that time, I have worked with selenium for some time and thought it shall be concise and brief to move to selenide, which offers most of the features we duplicated in many projects.
 Therefore, it is also a fast-learning code to practice with selenide. 
 
-The hours on this task is a good experience. I learned that genres could be tagged to both tracks and artists. They are not orthogonal and a common genre list is defined in ID3 information standard originally for MP3 format.
-WinAmp has expanded the genre list from 80 to 126. Reference link is [Link](http://id3.org/id3v2.3.0#Appendix_A_-_Genre_List_from_ID3v1)
+After that, I added HtmlUnit option to avoid popped up browser windows since it is a headless client. Therefore, this program could be regarded as a cli wrapper of customized google search of song's genres.
+It has the function to try a series of keywords with preconfigured patterns to recognize genre results.
 
-By the way, for a convenient implementation regardless the objective to learn selenide, I would recommend Python with beautiful soap to complete the targets on gener query.
+The third option of Jsoup is still under work. Since Jsoup does not execute the front-end javascripts, currently the idea is to expand Jsoup to query Wikipedia instead. For registered songs, the URL has a pattern composited with song and artist name.
+With the preconfigured pattern, Jsoup could extract genres from static pages on Wikipedia.
+
+The hours on this task is a good journey. I learned that genres could be tagged to both tracks and artists. They are not orthogonal and a common genre list is defined in ID3 information standard originally for MP3 format.
+WinAmp has expanded the genre list from 80 to 126. Reference link is [Link](http://id3.org/id3v2.3.0#Appendix_A_-_Genre_List_from_ID3v1)
 
 ## Notes 
 
