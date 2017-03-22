@@ -10,6 +10,11 @@ import static com.codeborne.selenide.Selenide.open;
  * Created by maxwu on 3/14/17.
  */
 public class BillboardTop100Test extends SelenideBase {
+    @Before
+    public void setUp() {
+        org.junit.Assume.assumeTrue(System.getProperty("SelenideTest").equalsIgnoreCase("True"));
+    }
+    
     @After
     public void tearDown(){
         quitDriver();

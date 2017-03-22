@@ -9,12 +9,14 @@ import java.util.stream.Collectors;
  * Created by maxwu on 3/15/17.
  */
 public class BillboardTop100SelenideTest extends SelenideBase {
-    // Make screenshot on every case
-    // @Rule
-    // public ScreenShooter makeScreenshotOnFailure = ScreenShooter.failedTests().succeededTests();
 
     @Rule
     public BillboardTop100Watcher top100Rule = new BillboardTop100Watcher();
+
+    @Before
+    public void setUp() {
+        org.junit.Assume.assumeTrue(System.getProperty("SelenideTest").equalsIgnoreCase("True"));
+    }
 
     @AfterClass
     public static void tearDown(){
