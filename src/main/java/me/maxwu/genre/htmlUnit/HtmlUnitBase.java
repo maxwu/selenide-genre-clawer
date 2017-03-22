@@ -66,10 +66,11 @@ public class HtmlUnitBase implements IGenreCmd{
             final HtmlPage page = webClient.getPage(req);
             String result;
             List<HtmlDivision> divs = page
-                    .getByXPath("//*[@id=\"rso\"]/div[1]/div/div[1]/div/div[1]/div[2]/div[2]/div/div/div/div[1]");
+                .getByXPath("//div[@class=\"_XWk\"]");
+                //"//*[@id=\"rso\"]/div[1]/div/div[1]/div/div[1]/div[2]/div[2]/div/div/div/div[1]");
             if ((divs == null) || (divs.isEmpty())){
                 // As List: //div[@class="title"]
-                divs = page.getByXPath("//div[@class=\"title\"]");
+                divs = page.getByXPath("//div[@class=\"_Mjf\"]/div[@class=\"title\"]");
                 if ((divs == null) || (divs.isEmpty())){
                     throw new RuntimeException("0 div found for genres");
                 }

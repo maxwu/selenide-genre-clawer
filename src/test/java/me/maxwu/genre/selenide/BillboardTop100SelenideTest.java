@@ -15,7 +15,7 @@ public class BillboardTop100SelenideTest extends SelenideBase {
 
     @Before
     public void setUp() {
-        org.junit.Assume.assumeTrue(System.getProperty("SelenideTest").equalsIgnoreCase("True"));
+        org.junit.Assume.assumeTrue(System.getProperty("SelenideTest", "False").equalsIgnoreCase("True"));
     }
 
     @AfterClass
