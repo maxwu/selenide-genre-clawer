@@ -12,7 +12,8 @@ import static com.codeborne.selenide.Selenide.open;
 public class BillboardTop100Test extends SelenideBase {
     @Before
     public void setUp() {
-        org.junit.Assume.assumeTrue(System.getProperty("SelenideTest").equalsIgnoreCase("True"));
+        System.setProperty("selenide.browser", "chrome");
+        org.junit.Assume.assumeTrue(System.getProperty("SelenideTest", "False").equalsIgnoreCase("True"));
     }
     
     @After

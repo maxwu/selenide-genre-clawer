@@ -15,6 +15,7 @@ public class BillboardTop100SelenideTest extends SelenideBase {
 
     @Before
     public void setUp() {
+        System.setProperty("selenide.browser", "chrome");
         org.junit.Assume.assumeTrue(System.getProperty("SelenideTest", "False").equalsIgnoreCase("True"));
     }
 
