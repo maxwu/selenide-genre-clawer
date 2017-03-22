@@ -34,6 +34,6 @@ public class AppTest {
     public void testBillboardTop10Default(){
         Map<Integer, Map<String, Object>> map = new App().map;
         System.out.println(new Yaml().dump(map));
-        Assert.assertEquals(2, map.size());
+        Assert.assertEquals(10, map.size());
     }
 }
