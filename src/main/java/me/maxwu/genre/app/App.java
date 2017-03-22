@@ -62,7 +62,10 @@ public class App{
     }
 
     public static void showHelpAndExit(int status){
-        System.out.println("Please visit https://github.com/maxwu/Genre-Clawer for more information.");
+        System.out.println("To use Genre-Clawer as maven lib, please visit https://github.com/maxwu/Genre-Clawer for more information.\n"
+            + "For supports or a python version with cache and scaling, please see contact on http://maxwu.me\n"
+            + "Further information, please consider http://cv.maxwu.me as a candidate."
+        );
         System.exit(status);
     }
 

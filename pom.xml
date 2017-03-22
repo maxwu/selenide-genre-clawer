@@ -35,9 +35,7 @@
         </repository>
     </repositories>
 
-
     <dependencies>
-
         <dependency>
             <groupId>com.codeborne</groupId>
             <artifactId>selenide</artifactId>
