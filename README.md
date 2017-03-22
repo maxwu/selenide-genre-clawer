@@ -137,15 +137,7 @@ Success rate = 100.00%
 #### Example 2: Fetch genres for song name "Love On The Brain" and artist name "Rihanna"
 Obviously, this example will utilize default HtmlUnit headless browser.
 
-```
->>java -jar ./target/Genre-Clawer-1.3.jar -s "Love On The Brain" -a "Rihanna"
-1:
-  song: Love On The Brain
-  artist: Rihanna
-  genres: [Contemporary R&B, Pop]
-
-Success rate = 100.00%
-```
+[![asciicast](https://asciinema.org/a/b0n59hqlnjjqte4es7e9wg96f.png)](https://asciinema.org/a/b0n59hqlnjjqte4es7e9wg96f)
 
 ## Targets
 
