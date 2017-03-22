@@ -4,10 +4,12 @@
 
 [![Build Status](https://travis-ci.org/maxwu/Genre-Clawer.svg?branch=master)](https://travis-ci.org/maxwu/Genre-Clawer/branch/master) [![codecov](https://codecov.io/gh/maxwu/Genre-Clawer/branch/master/graph/badge.svg)](https://codecov.io/gh/maxwu/Genre-Clawer) [![Build Status](https://travis-ci.org/maxwu/Genre-Clawer.svg?branch=dev)](https://travis-ci.org/maxwu/Genre-Clawer) [![codecov](https://codecov.io/gh/maxwu/Genre-Clawer/branch/dev/graph/badge.svg)](https://codecov.io/gh/maxwu/Genre-Clawer/branch/dev)
 
-A clawer to fetch song's genre information from internet. This project is a practice on PageObject with Selenide. 
-Based on it, an app was developed to generate billboard top 100 song list with genre information and dump them into YAML.
+A clawer to fetch song's genre information from internet. 
+The released Jar file could also execute on command line to generate billboard top 100 song list upon CLI options, fetch genres and dump them into YAML format to console.
 
-Besides selenide, HtmlUnit is introduced as a headless browser to fetch genre results silently without browser window popped up.
+In background, HtmlUnit or Selenide(a concise wrapper of Selenium) will be invoked to fetch genres and match the patterns on results.
+By default it will choose HtmlUnit as a headless client to invoke silently. However, to keep it open, Selenide option is available. 
+If Selenide is chosen, Chrome browser is now the only option in released codes since WebDriver handling is overridden with WebDriverManager to make a better control. 
 
 ## User Guide
 
