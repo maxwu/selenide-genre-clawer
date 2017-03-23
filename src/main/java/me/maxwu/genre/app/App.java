@@ -50,7 +50,7 @@ public class App{
             }};
         }else {
             map = commander.getBillboardTop100Map(size);
-            System.out.println("Got total " + map.size() + " songs");
+            System.err.println("Got total " + map.size() + " songs");
         }
 
         map.forEach((k, v) -> v.put("genres", commander.getSongGenres(v.get("song").toString(), v.get("artist").toString())));
@@ -62,7 +62,7 @@ public class App{
     }
 
     public static void showHelpAndExit(int status){
-        System.out.println("To use Genre-Clawer as maven lib, please visit https://github.com/maxwu/Genre-Clawer for more information.\n"
+        System.err.println("To use Genre-Clawer as maven lib, please visit https://github.com/maxwu/Genre-Clawer for more information.\n"
             + "For supports or a python version with cache and scaling, please see contact on http://maxwu.me\n"
             + "Further information, please consider http://cv.maxwu.me as a candidate."
         );
@@ -112,7 +112,7 @@ public class App{
         Map<Integer, Map<String, Object>> map = parseCli(args).map;
         System.out.println(new Yaml().dump(map));
         if (!map.isEmpty()) {
-            System.out.printf("Success rate = %.2f%%\n",
+            System.err.printf("Success rate = %.2f%%\n",
                     map.values().stream()
                             .filter(v -> !isDefaultGenreList((List<String>)v.get("genres")))
                             .count() * 100.0f / map.size()
