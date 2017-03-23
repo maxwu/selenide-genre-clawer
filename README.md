@@ -260,4 +260,4 @@ In general, the way is to create multiple WebDrivers and tell out which driver t
 - Add JUnit tests for v1.3 cli functions.
 
 - Create Jenkins task to [http://jenkins.maxwu.me](http://jenkins.maxwu.me) and package this project with Pipeline.
-
+  [![Build Status](http://jenkins.maxwu.me/buildStatus/icon?job=Genre-Clawer)](http://jenkins.maxwu.me/job/Genre-Clawer/)
