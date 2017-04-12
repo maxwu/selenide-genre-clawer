@@ -1,6 +1,6 @@
 # Genre Clawer
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)  [![](https://jitpack.io/v/maxwu/Genre-Clawer.svg)](https://jitpack.io/#maxwu/Genre-Clawer)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)  [![](https://jitpack.io/v/maxwu/Genre-Clawer.svg)](https://jitpack.io/#maxwu/Genre-Clawer)
 
 [![Build Status](https://travis-ci.org/maxwu/Genre-Clawer.svg?branch=master)](https://travis-ci.org/maxwu/Genre-Clawer/branch/master) [![codecov](https://codecov.io/gh/maxwu/Genre-Clawer/branch/master/graph/badge.svg)](https://codecov.io/gh/maxwu/Genre-Clawer) [![Build Status](https://travis-ci.org/maxwu/Genre-Clawer.svg?branch=dev)](https://travis-ci.org/maxwu/Genre-Clawer) [![codecov](https://codecov.io/gh/maxwu/Genre-Clawer/branch/dev/graph/badge.svg)](https://codecov.io/gh/maxwu/Genre-Clawer/branch/dev)
 
@@ -248,6 +248,8 @@ Selenide has wrapped the Element Extraction operations with Instance Proxy. With
         genres = new ArrayList<>(Arrays.asList("NA"));
     }
     ```
+
+Most recent version is v1.4a1 and System Property "SelenideTest=True" will open the selenide/selenium test with Maven/JUnit.
     
 ## TODO
 
