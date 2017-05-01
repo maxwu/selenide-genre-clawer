@@ -2,9 +2,9 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)  [![](https://jitpack.io/v/maxwu/Genre-Clawer.svg)](https://jitpack.io/#maxwu/Genre-Clawer) [![Analytics](https://ga-beacon.appspot.com/UA-89976940-3/genre-clawer)](https://github.com/maxwu/genre-clawer)
 
-[![Build Status](https://travis-ci.org/maxwu/Genre-Clawer.svg?branch=master)](https://travis-ci.org/maxwu/Genre-Clawer/branch/master) [![codecov](https://codecov.io/gh/maxwu/Genre-Clawer/branch/master/graph/badge.svg)](https://codecov.io/gh/maxwu/Genre-Clawer) [![CircleCI](https://circleci.com/gh/maxwu/Genre-Clawer/tree/master.svg?style=svg)](https://circleci.com/gh/maxwu/Genre-Clawer/tree/master) 
+[![Build Status](https://travis-ci.org/maxwu/Genre-Clawer.svg?branch=master)](https://travis-ci.org/maxwu/Genre-Clawer/branch/master) [![codecov](https://codecov.io/gh/maxwu/Genre-Clawer/branch/master/graph/badge.svg)](https://codecov.io/gh/maxwu/Genre-Clawer) [![CircleCI](https://circleci.com/gh/maxwu/Genre-Clawer/tree/master.svg?style=shield)](https://circleci.com/gh/maxwu/Genre-Clawer/tree/master) 
 
-[![Build Status](https://travis-ci.org/maxwu/Genre-Clawer.svg?branch=dev)](https://travis-ci.org/maxwu/Genre-Clawer) [![codecov](https://codecov.io/gh/maxwu/Genre-Clawer/branch/dev/graph/badge.svg)](https://codecov.io/gh/maxwu/Genre-Clawer/branch/dev) [![CircleCI](https://circleci.com/gh/maxwu/Genre-Clawer/tree/dev.svg?style=svg)](https://circleci.com/gh/maxwu/Genre-Clawer/tree/dev)
+[![Build Status](https://travis-ci.org/maxwu/Genre-Clawer.svg?branch=dev)](https://travis-ci.org/maxwu/Genre-Clawer) [![codecov](https://codecov.io/gh/maxwu/Genre-Clawer/branch/dev/graph/badge.svg)](https://codecov.io/gh/maxwu/Genre-Clawer/branch/dev) [![CircleCI](https://circleci.com/gh/maxwu/Genre-Clawer/tree/dev.svg?style=shield)](https://circleci.com/gh/maxwu/Genre-Clawer/tree/dev)
 
 A clawer to fetch song's genre information from internet. 
 The released Jar file could also execute on command line to generate billboard top 100 song list upon CLI options, fetch genres and dump them into YAML format to console.
