@@ -12,19 +12,16 @@ node {
     }
     stage('Build') {
         // Run the maven build
-        steps{
-            timeout(time: 4, unit: 'MINUTES') {
-                if (isUnix()) {
-                    sh "mvn -Dmaven.test.failure.ignore clean package"
-                } else {
-                    bat "mvn -Dmaven.test.failure.ignore clean package"
-                }
+        timeout(time: 6, unit: 'MINUTES') {
+            if (isUnix()) {
+                sh "mvn -Dmaven.test.failure.ignore clean package"
+            } else {
+                bat "mvn -Dmaven.test.failure.ignore clean package"
             }
         }
     }
     stage('Results') {
         junit '**/target/surefire-reports/TEST-*.xml'
-        // To save disk space, comment the jar files archive instructions
-        // archive 'target/*.jar'
+        //archive 'target/*.jar'
     }
 }
