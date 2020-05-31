@@ -21,7 +21,7 @@
         <selenide.version>4.3</selenide.version>
         <wdm.version>1.6.0</wdm.version>
         <jsoup.version>1.10.2</jsoup.version>
-        <htmlUnit.version>2.25</htmlUnit.version>
+        <htmlUnit.version>2.37.0</htmlUnit.version>
         <slf4j.version>1.7.25</slf4j.version>
         <common-cli.version>1.3</common-cli.version>
     </properties>
